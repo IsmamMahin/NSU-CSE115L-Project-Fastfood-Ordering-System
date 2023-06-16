@@ -8,7 +8,7 @@ int main(void)
     splashscreen();           //splashscreen that is shown at the start of the program
     delay(4);                 //the splashscreen will stay for 4 seconds
     system("cls");            //splashscreen will get cleared
-    login();
+    login();                  //login process
     printf("Hello world!");
     return 0;
 }

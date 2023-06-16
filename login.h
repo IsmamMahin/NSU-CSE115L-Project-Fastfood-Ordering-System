@@ -42,7 +42,7 @@ void login(void)
 void signup(void)
 {
     FILE *log;
-    log = fopen("login.txt", "w");
+    log = fopen("login.txt", "a");
     struct login l;
     printf("Enter your first name: ");
     scanf("%s", l.first_name);
@@ -55,7 +55,7 @@ void signup(void)
     fwrite(&l, sizeof(l), 1, log);
     fclose(log);
     system("CLS");
-    printf("Signup successful!!!");
+    printf("Signup successful!!!\n");
     signin();
 }
 void signin(void)
@@ -65,29 +65,29 @@ void signin(void)
     FILE *log;
     log = fopen("login.txt", "r");
     struct login l;
-    int s;
+    int s = -1;
     do
     {
         printf("Enter Username: ");
-        scanf("%s", &username);
+        scanf("%s", username);
         printf("Enter Password: ");
-        scanf("%s", &password);
+        scanf("%s", password);
         fseek(log, 0, SEEK_SET);
         while (fread(&l, sizeof(l), 1, log))
         {
             if (strcmp(username, l.username) == 0 && strcmp(password, l.password) == 0)
             {
                 printf("Login successful!\n");
-                printf("Welcome %s %s\n",l.first_name,l.last_name);
+                printf("Welcome %s %s\n", l.first_name, l.last_name);
                 getch();
                 s = 0;
+                break;
             }
-            else
-            {
-                system("CLS");
-                printf("Incorrect ID or password! Please try again\n");
-                s = -1;
-            }
+        }
+        if (s == -1)
+        {
+            system("CLS");
+            printf("Incorrect ID or password! Please try again\n");
         }
     } while (s == -1);
     fclose(log);

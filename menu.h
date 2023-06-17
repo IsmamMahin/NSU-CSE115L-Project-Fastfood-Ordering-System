@@ -59,6 +59,11 @@ int menu(void)
         printf("Unable to create the invoice file.\n");
         return 1;
     }
+    int itemChoice;
+    int quantity;
+    float total;
+    float vat;
+    float pay;
 
     fprintf(invoiceFile, "************************************************\n");
     fprintf(invoiceFile, "*          Welcome to Eren's FastFood          *\n");
@@ -68,11 +73,6 @@ int menu(void)
     fprintf(invoiceFile, "  Item                      Quantity     Price  \n");
     fprintf(invoiceFile, "------------------------------------------------\n\n");
 
-    int itemChoice;
-    int quantity;
-    float total;
-    float vat;
-    float pay;
     while (choice != 3)
     {
         printf("************************************************\n");
@@ -128,6 +128,13 @@ int menu(void)
                 printf("Unable to create the invoice file.\n");
                 return 1;
             }
+            fprintf(invoiceFile, "************************************************\n");
+            fprintf(invoiceFile, "*          Welcome to Eren's FastFood          *\n");
+            fprintf(invoiceFile, "*            Where Yeagerists Meet             *\n");
+            fprintf(invoiceFile, "************************************************\n\n");
+            fprintf(invoiceFile, "------------------- Invoice --------------------\n");
+            fprintf(invoiceFile, "  Item                      Quantity     Price  \n");
+            fprintf(invoiceFile, "------------------------------------------------\n\n");
             totalAmount = 0.0;
             printf("Invoice cleared.\n");
             getch();
@@ -243,8 +250,7 @@ int menu(void)
             getch();
             system("cls");
         }
-        }
-
+    }
 }
 
 float nPrice(float i, int n)

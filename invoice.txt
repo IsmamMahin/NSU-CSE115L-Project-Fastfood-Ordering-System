@@ -7,10 +7,9 @@
   Item                      Quantity     Price  
 ------------------------------------------------
 
-Colossal Pizza        	        2      $ 1200.00
-Sasha's Wedges        	        1      $  130.00
-Rumbling Shake        	        2      $  360.00
-Total:                                 $ 1690.00
-Vat(25%):                              $  422.50
-Total payable:                         $ 2112.50
-Payment system: Bkash. Phone Number: 01869129874
+Jaw Burger            	        5      $ 2500.00
+Sasha's Wedges        	        2      $  260.00
+Total:                                 $ 2760.00
+Vat(25%):                              $  690.00
+Total payable:                         $ 3450.00
+Payment system: Bkash. Phone Number: 01750180680

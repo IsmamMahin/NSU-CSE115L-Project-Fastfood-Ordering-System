@@ -7,9 +7,10 @@
   Item                      Quantity     Price  
 ------------------------------------------------
 
-Jaw Burger            	        5      $ 2500.00
-Sasha's Wedges        	        2      $  260.00
-Total:                                 $ 2760.00
-Vat(25%):                              $  690.00
-Total payable:                         $ 3450.00
-Payment system: Bkash. Phone Number: 01750180680
+Armored Burger        	        2      $ 1200.00
+Sasageyo Smoothie     	        3      $  450.00
+Onyankopon Brownie    	        3      $  300.00
+Total:                                 $ 1950.00
+Vat(25%):                              $  487.50
+Total payable:                         $ 2437.50
+Payment system: Bkash. Phone Number: 01869129874

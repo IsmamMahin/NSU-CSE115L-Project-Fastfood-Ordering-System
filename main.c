@@ -4,7 +4,7 @@
 #include "delay.h"        //header file containing delay function
 #include "login.h"        //header file containing the function for login
 #include "menu.h"         //header file containing the menu of item and purchasing system
-void openImage(void);
+void openImageDeliveryGuy(void);
 
 int main(void)
 {

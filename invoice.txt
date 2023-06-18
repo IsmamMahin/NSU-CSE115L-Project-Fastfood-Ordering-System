@@ -7,10 +7,12 @@
   Item                      Quantity     Price  
 ------------------------------------------------
 
-Armored Burger        	        2      $ 1200.00
-Sasageyo Smoothie     	        3      $  450.00
-Onyankopon Brownie    	        3      $  300.00
-Total:                                 $ 1950.00
-Vat(25%):                              $  487.50
-Total payable:                         $ 2437.50
-Payment system: Bkash. Phone Number: 01869129874
+Attack Pizza          	        3      $ 1650.00
+Female Pizza          	        2      $ 1100.00
+Rumbling Shake        	        3      $  540.00
+Total:                                 $ 3290.00
+Vat(25%):                              $  822.50
+Total payable:                         $ 4112.50
+
+Address: Road 5, Block C, Bashundhara R/A
+Payment system: Bkash. Phone Number: 01750180680

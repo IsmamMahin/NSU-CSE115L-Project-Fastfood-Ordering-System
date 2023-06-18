@@ -12,6 +12,7 @@ void beep(int, int);
 
 int main(void)
 {
+    system("COLOR B0");
     splashscreen(); // splashscreen that is shown at the start of the program
     music(); //Adds a music during splashscreen
     system("cls"); // splashscreen will get cleared

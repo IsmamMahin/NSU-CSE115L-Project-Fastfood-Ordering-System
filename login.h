@@ -145,7 +145,7 @@ void signin(void)
         if (s == -1)
         {
             system("CLS");
-            printf("Incorrect ID or password! Please try again\n");
+            printf("Incorrect ID or password! Please try again\a\n");
         }
     } while (s == -1);
     fclose(log);

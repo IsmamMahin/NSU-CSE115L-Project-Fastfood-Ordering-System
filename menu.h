@@ -92,7 +92,7 @@ int menu(void)
         printf("3. Proceed to payment.\n");
         printf("Enter the corresponding number of the option you want to choose: ");
         scanf("%d", &choice);
-
+        getchar();
         switch (choice)
         {
         case 1:
@@ -113,7 +113,7 @@ int menu(void)
             }
             else
             {
-                printf("Invalid item number.\n");
+                printf("Invalid item number.\a\n");
                 getch();
                 system("cls");
             }
@@ -136,7 +136,7 @@ int menu(void)
             fprintf(invoiceFile, "  Item                      Quantity     Price  \n");
             fprintf(invoiceFile, "------------------------------------------------\n\n");
             totalAmount = 0.0;
-            printf("Invoice cleared.\n");
+            printf("Invoice cleared.\a\n");
             getch();
             system("cls");
             break;
@@ -157,8 +157,6 @@ int menu(void)
                 return 1;
             }
 
-            char line[100];
-
             while (fgets(line, sizeof(line), invoiceFile))
             {
                 printf("%s", line);
@@ -166,20 +164,24 @@ int menu(void)
 
             fclose(invoiceFile);
 
-            printf("\nInvoice created successfully.\n");
-            printf("Please proceed to the payment.\n");
+            printf("\nOrder created successfully.\n");
+            printf("Please proceed to next step.\n");
             getch();
             break;
 
         default:
-            printf("Invalid choice.\n");
+            printf("Invalid choice.\a\n");
             getch();
             system("cls");
             break;
         }
     }
-
-    fclose(invoiceFile);
+    system("cls");
+    printf("Enter your address: ");
+    char address[100];
+    fgets(address, sizeof(address), stdin);
+    invoiceFile = fopen("invoice.txt", "a");
+    fprintf(invoiceFile, "\nAddress: %s", address);
     system("cls");
     int paychoice = 0;
     char phone[20];
@@ -199,20 +201,19 @@ int menu(void)
         {
             system("cls");
             printf("Amount $%7.2f will be credited from your account.\n", pay);
-            printf("Enter you phone number: ");
-            scanf("%s", &phone);
+            printf("Enter your phone number: ");
+            scanf("%s", phone);
             printf("Amount $%7.2f has been credited from your account.\n", pay);
             getch();
             break;
         }
         else
         {
-            printf("Invalid input.");
+            printf("Invalid input.\a");
             getch();
             system("cls");
         }
     }
-    invoiceFile = fopen("invoice.txt", "a");
     if (paychoice == 1)
     {
         fprintf(invoiceFile, "Payement system: Cash on Delivery.\n");
@@ -222,6 +223,7 @@ int menu(void)
         fprintf(invoiceFile, "Payment system: Bkash. Phone Number: %s\n", phone);
     }
     fclose(invoiceFile);
+    system("cls");
     char invoicePrint;
     while (1)
     {
@@ -230,7 +232,7 @@ int menu(void)
         if (invoicePrint == 'Y' || invoicePrint == 'y')
         {
             char command[100];
-            sprintf(command, "notepad invoice.txt"); // Replace "text-editor" with the command to open your preferred text editor.
+            sprintf(command, "notepad invoice.txt");
 
             int status = system(command);
             if (status == -1)
@@ -246,11 +248,12 @@ int menu(void)
         }
         else
         {
-            printf("Invalid input.");
+            printf("Invalid input.\a");
             getch();
             system("cls");
         }
     }
+    return 0;
 }
 
 float nPrice(float i, int n)

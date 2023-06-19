@@ -14,6 +14,7 @@ typedef struct
 } MenuItem;
 
 float nPrice(float, int);
+void newDelay(int);
 
 int menu(void)
 {
@@ -203,7 +204,13 @@ int menu(void)
             printf("Amount $%7.2f will be credited from your account.\n", pay);
             printf("Enter your phone number: ");
             scanf("%s", phone);
-            printf("Amount $%7.2f has been credited from your account.\n", pay);
+            printf("Processing Transaction");
+            for (int i = 0; i < 15; i++)
+            {
+                printf(".");
+                newDelay(3);
+            }
+            printf("\nAmount $%7.2f has been credited from your account.\n", pay);
             getch();
             break;
         }
@@ -263,4 +270,16 @@ float nPrice(float i, int n)
         return i;
     }
     return i + nPrice(i, n - 1);
+}
+
+void newDelay(int number)
+{
+    // Input 10 is equal to 1 second
+    int milli_seconds = 100 * number;
+ 
+    // Storing start time
+    clock_t start_time = clock();
+ 
+    // looping till required time is not achieved
+    while (clock() < start_time + milli_seconds);
 }

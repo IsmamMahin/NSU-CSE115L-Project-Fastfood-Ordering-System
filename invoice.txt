@@ -7,12 +7,12 @@
   Item                      Quantity     Price  
 ------------------------------------------------
 
-Attack Pizza          	        3      $ 1650.00
-Female Pizza          	        2      $ 1100.00
+Colossal Pizza        	        5      $ 3000.00
+Beast Burger          	        2      $ 1100.00
 Rumbling Shake        	        3      $  540.00
-Total:                                 $ 3290.00
-Vat(25%):                              $  822.50
-Total payable:                         $ 4112.50
+Total:                                 $ 4640.00
+Vat(25%):                              $ 1160.00
+Total payable:                         $ 5800.00
 
-Address: Road 5, Block C, Bashundhara R/A
-Payment system: Bkash. Phone Number: 01750180680
+Address: Khilkhet, Dhaka.
+Payment system: Bkash. Phone Number: 01869129874

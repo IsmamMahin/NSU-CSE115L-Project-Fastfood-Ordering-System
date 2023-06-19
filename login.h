@@ -58,8 +58,24 @@ void signup(void)
     scanf("%s", l.last_name);
     printf("Enter username: ");
     scanf("%s", l.username);
-    printf("Enter password: ");
-    hidePassword(l.password);
+    while (1)
+    {
+        printf("Enter password(Atleast 8 characters): ");
+        hidePassword(l.password);
+        if (strlen(l.password) < 8)
+        {
+            printf("Password cannot be less than 8 characters. Try again.");
+            getch();
+            memset(l.password, 0, sizeof(l.password));
+            system("cls");
+            printf("Enter your first name: %s\n",l.first_name);
+            printf("Enter your last name: %s\n",l.last_name);
+            printf("Enter username: %s\n",l.username);
+            continue;
+        }
+        else
+            break;
+    }
     fprintf(log, "%s %s %s %s\n", l.first_name, l.last_name, l.username, l.password);
     fclose(log);
     system("CLS");

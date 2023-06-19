@@ -2,7 +2,6 @@
 #include <time.h>
 #include <windows.h>
 #include "splashscreen.h" //header file containing the function for splashscreen
-#include "delay.h"        //header file containing delay function
 #include "login.h"        //header file containing the function for login
 #include "menu.h"         //header file containing the menu of item and purchasing system
 
@@ -66,6 +65,5 @@ void music(void)
     // Play the melody structure
     for (int i = 0; i < size; i++) {
         beep(melody[i], duration[i]);
-        delay(.2); // Pause between notes
     }
 }

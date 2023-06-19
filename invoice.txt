@@ -7,12 +7,13 @@
   Item                      Quantity     Price  
 ------------------------------------------------
 
-Colossal Pizza        	        5      $ 3000.00
-Beast Burger          	        2      $ 1100.00
-Rumbling Shake        	        3      $  540.00
-Total:                                 $ 4640.00
-Vat(25%):                              $ 1160.00
-Total payable:                         $ 5800.00
+Attack Pizza          	        2      $ 1100.00
+Special Founding Pizza	        1      $  750.00
+Sasha's Wedges        	        3      $  390.00
+Sasageyo Smoothie     	        2      $  300.00
+Total:                                 $ 2540.00
+Vat(25%):                              $  635.00
+Total payable:                         $ 3175.00
 
-Address: Khilkhet, Dhaka.
-Payment system: Bkash. Phone Number: 01869129874
+Address: ROad 5, Bashundhara R/A
+Payement system: Cash on Delivery.

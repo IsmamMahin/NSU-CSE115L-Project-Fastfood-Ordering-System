@@ -208,7 +208,7 @@ int menu(void)
             for (int i = 0; i < 15; i++)
             {
                 printf(".");
-                newDelay(3);
+                newDelay(30);
             }
             printf("\nAmount $%7.2f has been credited from your account.\n", pay);
             getch();
@@ -274,8 +274,8 @@ float nPrice(float i, int n)
 
 void newDelay(int number)
 {
-    // Input 10 is equal to 1 second
-    int milli_seconds = 100 * number;
+    // Input 100 is equal to 1 second
+    int milli_seconds = 10 * number;
  
     // Storing start time
     clock_t start_time = clock();

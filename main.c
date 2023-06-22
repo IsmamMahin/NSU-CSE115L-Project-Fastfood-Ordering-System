@@ -4,6 +4,7 @@
 #include "splashscreen.h" //header file containing the function for splashscreen
 #include "login.h"        //header file containing the function for login
 #include "menu.h"         //header file containing the menu of item and purchasing system
+char customer[50];
 
 void openImageDeliveryGuy(void);
 void music(void);

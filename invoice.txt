@@ -7,13 +7,13 @@
   Item                      Quantity     Price  
 ------------------------------------------------
 
-Attack Pizza          	        2      $ 1100.00
-Special Founding Pizza	        1      $  750.00
-Sasha's Wedges        	        3      $  390.00
-Sasageyo Smoothie     	        2      $  300.00
-Total:                                 $ 2540.00
-Vat(25%):                              $  635.00
-Total payable:                         $ 3175.00
+Attack Pizza          	        3      $ 1650.00
+War Hammer Pizza      	        2      $ 1000.00
+Colossal Pizza        	        2      $ 1200.00
+Total:                                 $ 3850.00
+Vat(25%):                              $  962.50
+Total payable:                         $ 4812.50
 
-Address: ROad 5, Bashundhara R/A
-Payement system: Cash on Delivery.
+Customer name: Kurosaki Ichigo
+Address: Road 5, Bashundhara R/A
+Payment system: Bkash. Phone Number: 01715782677

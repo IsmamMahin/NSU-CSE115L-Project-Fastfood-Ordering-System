@@ -9,6 +9,9 @@
 #include <termios.h>
 #include <unistd.h>
 #endif
+
+extern char customer[50];
+
 struct login
 {
     char first_name[100];
@@ -30,11 +33,13 @@ void login(void)
     {
         if (!(n == 1 || n == 2))
         {
-            printf("Wrong input! Try again\n");
+            printf("\n\n\n");
+            printf("\tWrong input! Try again\n");
         }
-
-        printf("Press '1' to signup.\n");
-        printf("Press '2' to sign in.\n");
+        printf("\n\n\n");
+        printf("\tPress '1' to signup.\n");
+        printf("\tPress '2' to sign in.\n");
+        printf("\n\tEnter choice: ");
         scanf("%d", &n);
     } while (!(n == 1 || n == 2));
     system("CLS");
@@ -52,25 +57,27 @@ void signup(void)
     FILE *log;
     log = fopen("login.txt", "a");
     struct login l;
-    printf("Enter your first name: ");
+    printf("\n\n\n");
+    printf("\tEnter your first name: ");
     scanf("%s", l.first_name);
-    printf("Enter your last name: ");
+    printf("\tEnter your last name: ");
     scanf("%s", l.last_name);
-    printf("Enter username: ");
+    printf("\tEnter username: ");
     scanf("%s", l.username);
     while (1)
     {
-        printf("Enter password(Atleast 8 characters): ");
+        printf("\tEnter password(Atleast 8 characters): ");
         hidePassword(l.password);
         if (strlen(l.password) < 8)
         {
-            printf("Password cannot be less than 8 characters. Try again.");
+            printf("\tPassword cannot be less than 8 characters. Try again.");
             getch();
             memset(l.password, 0, sizeof(l.password));
             system("cls");
-            printf("Enter your first name: %s\n",l.first_name);
-            printf("Enter your last name: %s\n",l.last_name);
-            printf("Enter username: %s\n",l.username);
+            printf("\n\n\n");
+            printf("\tEnter your first name: %s\n", l.first_name);
+            printf("\tEnter your last name: %s\n", l.last_name);
+            printf("\tEnter username: %s\n", l.username);
             continue;
         }
         else
@@ -79,7 +86,8 @@ void signup(void)
     fprintf(log, "%s %s %s %s\n", l.first_name, l.last_name, l.username, l.password);
     fclose(log);
     system("CLS");
-    printf("Signup successful!!!\n");
+    printf("\n\n\n");
+    printf("\tSignup successful!!!\n");
     signin();
 }
 #ifdef _WIN32
@@ -142,17 +150,22 @@ void signin(void)
     int s = -1;
     do
     {
-        printf("Enter Username: ");
+        printf("\n\n\n");
+        printf("\tEnter Username: ");
         scanf("%s", username);
-        printf("Enter Password: ");
+        printf("\tEnter Password: ");
         hidePassword(password);
         fseek(log, 0, SEEK_SET);
         for (int i = 0; i < count; i++)
         {
             if (strcmp(username, logInfo[i].username) == 0 && strcmp(password, logInfo[i].password) == 0)
             {
-                printf("Login successful!\n");
-                printf("Welcome %s %s\n", logInfo[i].first_name, logInfo[i].last_name);
+                printf("\n\n\n");
+                printf("\tLogin successful!\n");
+                printf("\n\tWelcome %s %s\n", logInfo[i].first_name, logInfo[i].last_name);
+                strcpy(customer, logInfo[i].first_name);
+                strcat(customer, " ");
+                strcat(customer, logInfo[i].last_name);
                 getch();
                 s = 0;
                 break;

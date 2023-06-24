@@ -3,6 +3,7 @@
 #include <string.h>
 #include <conio.h>
 #include <ctype.h>
+#include <time.h>
 
 #define MAX_ITEMS 100
 #define MAX_NAME_LENGTH 50
@@ -68,6 +69,8 @@ int menu(void)
     float total;
     float vat;
     float pay;
+    time_t t;
+    time(&t);
 
     fprintf(invoiceFile, "************************************************\n");
     fprintf(invoiceFile, "*          Welcome to Eren's FastFood          *\n");
@@ -80,31 +83,37 @@ int menu(void)
     while (choice != 3)
     {
         printf("\n\n\n");
-        printf("\t************************************************\n");
-        printf("\t*          Welcome to Eren's FastFood          *\n");
-        printf("\t*            Where Yeagerists Meet             *\n");
-        printf("\t************************************************\n\n");
-        printf("\t--------------------- MENU ---------------------\n");
-        printf("\t  Item                                   Price  \n");
-        printf("\t                                      (vat exc.)\n\n");
+        printf("\t\t\t\t\t\t************************************************\n");
+        printf("\t\t\t\t\t\t*          Welcome to Eren's FastFood          *\n");
+        printf("\t\t\t\t\t\t*            Where Yeagerists Meet             *\n");
+        printf("\t\t\t\t\t\t************************************************\n\n");
+        printf("\t\t\t\t\t\t--------------------- MENU ---------------------\n");
+        printf("\t\t\t\t\t\t  Item                                   Price  \n");
+        printf("\t\t\t\t\t\t                                      (vat exc.)\n\n");
         for (int i = 0; i < itemCount; i++)
         {
-            printf("\t%2d. %-24s\t\t$%7.2f\n", i + 1, menu[i].name, menu[i].price);
+            printf("\t\t\t\t\t\t%2d. %-24s\t\t$%7.2f\n", i + 1, menu[i].name, menu[i].price);
         }
-
-        printf("\n\t1. Add item from the list.\n");
-        printf("\t2. Clear list.\n");
-        printf("\t3. Proceed to payment.\n");
-        printf("\tEnter the corresponding number of the option you want to choose: ");
+        printf("\t\t\t\t\t\t");
+        for (int i = 0; i < 48; i++)
+            printf("-");
+        printf("\n\t\t\t\t\t\tDate and Time: %s", ctime(&t));
+        printf("\t\t\t\t\t\t");
+        for (int i = 0; i < 48; i++)
+            printf("-");
+        printf("\n\t\t\t\t\t\t1. Add item from the list.\n");
+        printf("\t\t\t\t\t\t2. Clear list.\n");
+        printf("\t\t\t\t\t\t3. Proceed to payment.\n");
+        printf("\t\t\t\t\t\tEnter the corresponding number of the option you want to choose: ");
         scanf("%d", &choice);
         getchar();
         switch (choice)
         {
         case 1:
 
-            printf("\tEnter the item number you want to add: ");
+            printf("\t\t\t\t\t\tEnter the item number you want to add: ");
             scanf("%d", &itemChoice);
-            printf("\tEnter quantity: ");
+            printf("\t\t\t\t\t\tEnter quantity: ");
             scanf("%d", &quantity);
 
             if (itemChoice >= 1 && itemChoice <= itemCount)
@@ -113,13 +122,13 @@ int menu(void)
                 total = nPrice(selected.price, quantity);
                 fprintf(invoiceFile, "%-22s\t       %2d      $%8.2f\n", selected.name, quantity, total);
                 totalAmount += total;
-                printf("\tItem added to the invoice.\n");
+                printf("\t\t\t\t\t\tItem added to the invoice.\n");
                 getch();
                 system("cls");
             }
             else
             {
-                printf("\tInvalid item number.\a\n");
+                printf("\t\t\t\t\t\tInvalid item number.\a\n");
                 getch();
                 system("cls");
             }
@@ -142,7 +151,7 @@ int menu(void)
             fprintf(invoiceFile, "  Item                      Quantity     Price  \n");
             fprintf(invoiceFile, "------------------------------------------------\n\n");
             totalAmount = 0.0;
-            printf("\tInvoice cleared.\a\n");
+            printf("\t\t\t\t\t\tInvoice cleared.\a\n");
             getch();
             system("cls");
             break;
@@ -153,7 +162,8 @@ int menu(void)
             vat = totalAmount * 0.25;
             fprintf(invoiceFile, "Total:                                 $%8.2f\n", totalAmount);
             fprintf(invoiceFile, "Vat(25%%):                              $%8.2f\n", vat);
-            pay = totalAmount + vat;
+            pay = totalAmount + vat + 20;
+            fprintf(invoiceFile,"Delivery charge:                       $   20.00\n");
             fprintf(invoiceFile, "Total payable:                         $%8.2f\n", pay);
             fclose(invoiceFile);
             invoiceFile = fopen("invoice.txt", "r");
@@ -165,18 +175,18 @@ int menu(void)
             printf("\n\n\n");
             while (fgets(line, sizeof(line), invoiceFile))
             {
-                printf("\t%s", line);
+                printf("\t\t\t\t\t\t%s", line);
             }
 
             fclose(invoiceFile);
 
-            printf("\n\tOrder created successfully.\n");
-            printf("\tPlease proceed to next step.\n");
+            printf("\n\t\t\t\t\t\tOrder created successfully.\n");
+            printf("\t\t\t\t\t\tPlease proceed to next step.\n");
             getch();
             break;
 
         default:
-            printf("\tInvalid choice.\a\n");
+            printf("\t\t\t\t\t\tInvalid choice.\a\n");
             getch();
             system("cls");
             break;
@@ -184,22 +194,23 @@ int menu(void)
     }
     system("cls");
     printf("\n\n\n");
-    printf("\tEnter your address: ");
+    printf("\t\t\t\t\t\tEnter your address: ");
     char address[100];
     fgets(address, sizeof(address), stdin);
     invoiceFile = fopen("invoice.txt", "a");
     fprintf(invoiceFile,"\nCustomer name: %s",customer);
     fprintf(invoiceFile, "\nAddress: %s", address);
+    fprintf(invoiceFile,"\nDate and Time: %s", ctime(&t));
     system("cls");
     int paychoice = 0;
     char phone[20];
     while (1)
     {
         printf("\n\n\n");
-        printf("\tFor payement choose any of the follow methods:\n");
-        printf("\t1.Cash on Delivery.\n");
-        printf("\t2.Bkash.\n");
-        printf("\n\tEnter your choice: ");
+        printf("\t\t\t\t\t\tFor payement choose any of the follow methods:\n");
+        printf("\t\t\t\t\t\t1.Cash on Delivery.\n");
+        printf("\t\t\t\t\t\t2.Bkash.\n");
+        printf("\n\t\t\t\t\t\tEnter your choice: ");
         scanf("%d", &paychoice);
         if (paychoice == 1)
         {
@@ -210,22 +221,22 @@ int menu(void)
         {
             system("cls");
             printf("\n\n\n");
-            printf("\tAmount $%7.2f will be credited from your account.\n", pay);
-            printf("\tEnter your phone number: ");
+            printf("\t\t\t\t\t\tAmount $%7.2f will be credited from your account.\n", pay);
+            printf("\t\t\t\t\t\tEnter your phone number: ");
             scanf("%s", phone);
-            printf("\tProcessing Transaction");
+            printf("\t\t\t\t\t\tProcessing Transaction");
             for (int i = 0; i < 15; i++)
             {
                 printf(".");
                 newDelay(30);
             }
-            printf("\n\tAmount $%7.2f has been credited from your account.\n", pay);
+            printf("\n\t\t\t\t\t\tAmount $%7.2f has been credited from your account.\n", pay);
             getch();
             break;
         }
         else
         {
-            printf("Invalid input.\a");
+            printf("\t\t\t\t\t\tInvalid input.\a");
             getch();
             system("cls");
         }
@@ -244,7 +255,7 @@ int menu(void)
     while (1)
     {
         printf("\n\n\n");
-        printf("\tIf you want to keep a copy of invoice press 'y', if not the press 'n': ");
+        printf("\t\t\t\t\t\tIf you want to keep a copy of invoice press 'y', if not the press 'n': ");
         scanf(" %c", &invoicePrint);
         if (invoicePrint == 'Y' || invoicePrint == 'y')
         {

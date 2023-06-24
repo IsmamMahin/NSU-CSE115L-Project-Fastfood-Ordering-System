@@ -7,13 +7,16 @@
   Item                      Quantity     Price  
 ------------------------------------------------
 
-Attack Pizza          	        3      $ 1650.00
-War Hammer Pizza      	        2      $ 1000.00
-Colossal Pizza        	        2      $ 1200.00
-Total:                                 $ 3850.00
-Vat(25%):                              $  962.50
-Total payable:                         $ 4812.50
+Rumbling Shake        	        2      $  360.00
+Attack Pizza          	        5      $ 2750.00
+Colossal Pizza        	        5      $ 3000.00
+Total:                                 $ 6110.00
+Vat(25%):                              $ 1527.50
+Delivery charge:                       $   20.00
+Total payable:                         $ 7657.50
 
-Customer name: Kurosaki Ichigo
-Address: Road 5, Bashundhara R/A
-Payment system: Bkash. Phone Number: 01715782677
+Customer name: Aquamarine Hoshino
+Address: Khilkhet, Dhaka.
+
+Date and Time: Sat Jun 24 20:14:10 2023
+Payment system: Bkash. Phone Number: 01869129874
